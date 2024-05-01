@@ -26,6 +26,19 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
       // TODO: Add InjectManifest Plugin
       new InjectManifest({ swSrc: './src-sw.js', swDest: 'service-worker.js' }),
+      new WebpackPwaManifest({
+        name: 'My Progressive Web App',
+        short_name: 'MyPWA',
+        description: 'My awesome Progressive Web App!',
+        background_color: '#ffffff',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('assets/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          },
+        ],
+      }),
     ],
 
     module: {
