@@ -30,6 +30,9 @@ Download or Pull this project from GitHub <br />Open the project on your favorit
 
 Use the text editor by going to `https://localhost:3000` and open the inspect tab to view your data being cached!
 
+![image](https://github.com/SuperRonanCraft/bootcamp-PWA-Text-Editor/assets/7385626/021d2853-0546-42eb-ac5b-cc2c4bf246cb)
+
+
 ## How to Contribute
 
 Want to contribute? Create a fork of this repo, add your changes to create a pull request (PR) when you are ready!
