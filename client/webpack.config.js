@@ -24,8 +24,9 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new MiniCssExtractPlugin(),
-      // TODO: Add InjectManifest Plugin
+      // InjectSW plugin (the naming structure for this plugin STINKS)
       new InjectManifest({ swSrc: './src-sw.js', swDest: 'service-worker.js' }),
+      // Add ability to install this webapp
       new WebpackPwaManifest({
         name: 'Text Editor PWS',
         short_name: 'TextEditorPWA',
@@ -36,7 +37,7 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
-            sizes: ['96', '144'], // multiple sizes
+            sizes: ['96', '144'], // REQUIRES 144x144 image for manifest to install properly...
             destination: path.join('logo'),
           },
           {
@@ -50,14 +51,17 @@ module.exports = () => {
     module: {
       rules: [
         {
+          //Builds our .css files
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
+          //Builds our images
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
         },
         {
+          //Builds our .js files
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {

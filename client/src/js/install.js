@@ -12,16 +12,12 @@ window.addEventListener('beforeinstallprompt', (event) => {
 butInstall.addEventListener('click', async () => {
   console.log('Install Button Clicked!');
   const promptEvent = window.deferredPrompt;
-
   if (!promptEvent) {
     console.log('Install Cancelled!');
     return;
   }
-
   promptEvent.prompt();
-
   window.deferredPrompt = null;
-
   butInstall.classList.toggle('hidden', true);
 });
 
