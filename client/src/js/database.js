@@ -1,5 +1,6 @@
 import { openDB } from 'idb';
 
+//Create indexedDB in browser
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
